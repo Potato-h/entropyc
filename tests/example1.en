@@ -1,0 +1,26 @@
+Program std Pi [
+    let cnt = 10000000;
+    let x = 0;
+    let y = 0;
+    
+    while cnt > 0 
+    [
+        let tmp = x * x + y * y; 
+
+        if tmp < 1
+        [
+            let pos = pos + 1;
+        ]
+
+        if tmp > 1
+        [
+            let neg = neg + 1;
+        ]
+
+        let x = (x + y) / (x * x * x + y * y + x + y); 
+        let y = (x + y) / (x * x + y * y * y + x + y);
+        let cnt = cnt - 1;
+    ]
+
+    print 4.0 * (pos / (pos + neg));
+]
