@@ -1,5 +1,5 @@
 use chumsky::prelude::*;
-use entropyc::parser::program_parser;
+use entropyc::{interpreter::Interpreter, parser::program_parser};
 
 fn main() {
     let filename = std::env::args().nth(1).expect("Expect file path");
@@ -13,5 +13,6 @@ fn main() {
         }
     };
 
-    println!("{ast:#?}");
+    let mut interpreter = Interpreter::default();
+    interpreter.execute(&ast);
 }
